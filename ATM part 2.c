@@ -12,8 +12,9 @@ main()
 	 	if(password == 1999)
 	 	 {  
 			printf("\nLogged in successfully. Please choose a transaction.");
+			printf("\n 1.Withdrow money.\n 2.Tranfer money.\n 3.Checking account balance.\n 4. End transaction.");
 			printf("\nChoose your transaction: ");
-	        scanf("%d", &choice);
+	                scanf("%d", &choice);
 	 	   	switch(choice)
 	       {
 	         case 1:
