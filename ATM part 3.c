@@ -24,12 +24,12 @@ main()
 	                   case 1:
 	                     printf("\nYour choice is withdraw money.");
 	                     printf("\nPlease enter the amount you want to withdraw. ");
-	                     scanf("%f", &withdrawamount);
+	                     scanf("%lf", &withdrawamount);
 	            
 	                     if(withdrawamount <= balance)
 	                      {
 	             	            balance = balance - withdrawamount;
-	             	            printf("\nWithdraw money successfully.\nYour account balance is %f", balance);
+	             	            printf("\nWithdraw money successfully.\nYour account balance is %lf", balance);
 	                      }
 	                     else 
 				    printf("\nYour account balance is not enough.");
@@ -41,11 +41,11 @@ main()
 	                     if(tranfer1 == 5678)
 	                      {
 	            	            printf("\nPlease enter the amount you want to tranfer:");
-	            	            scanf("%f", &tranferamount);
+	            	            scanf("%lf", &tranferamount);
 	            	         if(tranferamount <= balance)
 	            	         {
 	            		    balance = balance - tranferamount;
-	            		    printf("\nTranfer successfully.\nYour account balance is %f", balance);
+	            		    printf("\nTranfer successfully.\nYour account balance is %lf", balance);
 	            	          }
 					else
 					    printf("\nYour balance is not enough.");
@@ -55,7 +55,7 @@ main()
 	                     break;
 	                     case 3:
 	                       printf("\nYour choice is checking account balance.");
-	                       printf("\nYour account balance is %f", &balance);
+	                       printf("\nYour account balance is %lf", &balance);
 		               break;
 	                     case 4:
 	                       printf("\nYour choice is end transaction.");
