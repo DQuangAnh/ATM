@@ -34,9 +34,9 @@ main()
 		    }
 		  }
 	 	else
-		       printf("\nPassword incorect! Please try again.");
+		       printf("\nPassword incorrect! Please try again.");
 		   }
 	else
-	    printf("Username incorect! Please try again.");
+	    printf("Username incorrect! Please try again.");
 	return 0;
 }		 	 	      
