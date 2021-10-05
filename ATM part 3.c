@@ -47,8 +47,8 @@ main()
 	            		    balance = balance - tranferamount;
 	            		    printf("\nTranfer successfully.\nYour account balance is %lf", balance);
 	            	          }
-					else
-					    printf("\nYour balance is not enough.");
+				 else
+			            printf("\nYour account balance is not enough.");
 				}
 			     else
 				    printf("\nThe account you want to tranfer incorrect.Please try again.");			
