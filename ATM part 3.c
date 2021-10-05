@@ -55,7 +55,7 @@ main()
 	                     break;
 	                     case 3:
 	                       printf("\nYour choice is checking account balance.");
-	                       printf("\nYour account balance is %lf", &balance);
+	                       printf("\nYour account balance is %lf", balance);
 		               break;
 	                     case 4:
 	                       printf("\nYour choice is end transaction.");
