@@ -98,6 +98,7 @@ main()
 		              };
 		             printf("\n Do you want to continue an other transaction?");
 		             printf("\nEnter 'Y' or 'y' if you agree, enter 'N' or 'n' if you dont: ");
+			     fflush(stdin);
 		             scanf("%c", &choose);
 		      }
 		      while(choose == 'y' || choose == 'Y');
