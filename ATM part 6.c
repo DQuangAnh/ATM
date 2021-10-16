@@ -14,7 +14,7 @@ main()
 	double balance = 10000000000.000;
 	double withdraw_amount, tranfer_amount;
 	char choice2;
-	int cnt = 3;
+	int cnt = 4;
 	
 	printf("\nWelcome to HSBC ATM!");
 	
@@ -32,10 +32,29 @@ main()
 			    choice1 = trans(choice1);
 			    switch(choice1){
 				    case 1:
-					    withdraw(balance, withdraw_amount);
+				    	printf("\nYour choice is withdraw money.");
+                    	printf("\nPlease enter the amount you want to withdraw. ");
+	                    scanf("%lf", &withdraw_amount);
+	                    					    
+					    balance = withdraw(balance, withdraw_amount);
+	
+					    printf("\nYour account balance is %lf", balance);
 					    break;
 				    case 2:
-				        tranfer(balance, tranfer_amount, tranfer_account);
+				    	printf("\nYour choice is transfer money.");
+	                    printf("\nPlease enter the account you want to tranfer:");
+	                    scanf("%d", &tranfer_account);
+	                    do{
+                            printf("\nThe account you want to tranfer is not correct! Please try again.");
+	                        printf("\nPlease enter the account you want to tranfer:");
+	                        scanf("%d", &tranfer_account);
+	                      }while(tranfer_account != 5678);
+	                      
+						printf("\nPlease enter the amount you want to tranfer:");
+	                    scanf("%lf", &tranfer_amount); 
+	            
+				        balance = tranfer(balance, tranfer_amount, tranfer_account);
+				        printf("\nYour account balance is %lf", balance);
 					    break;	
 				    case 3:
 				        check_balance(balance);
@@ -56,6 +75,9 @@ main()
 	    	printf("\nYou have %d times to try again", cnt);
 		}
     }while(cnt >= 1);
+    if(cnt < 1){
+    	printf("\nYour account has been locked!");
+    }
 	return 0;
 }
 
@@ -73,44 +95,31 @@ int trans(int choice1){
 	return choice1;
 }
 double withdraw(double balance, double withdraw_amount){
-	printf("\nYour choice is withdraw money.");
-	printf("\nPlease enter the amount you want to withdraw. ");
-	scanf("%lf", &withdraw_amount);
-	if(withdraw_amount <= balance)
-	{
-	    balance = balance - withdraw_amount;
+
+	if(withdraw_amount <= balance){	
 	    printf("\nWithdraw money successfully.");
-		printf("\nYour account balance is %lf", balance);
-	}
+	    balance = balance - withdraw_amount;
+		return balance;
+    }
 	else 
 		printf("\nYour account balance is not enough.");
 	return balance;	
 }
 double tranfer(double balance, double tranfer_amount, int tranfer_account){
-	printf("\nYour choice is transfer money.");
-	printf("\nPlease enter the account you want to tranfer:");
-	scanf("%d", &tranfer_account);
-	            
-	while(tranfer_account != 5678)
-	{
-	    printf("\nThe account you want to tranfer is not correct! Please try again.");
-	    printf("\nPlease enter the account you want to tranfer:");
-	    scanf("%d", &tranfer_account);
-	}    
-	            
+              
 	if(tranfer_account == 5678)
 	{
-	    printf("\nPlease enter the amount you want to tranfer:");
-	    scanf("%lf", &tranfer_amount);
+
 	    if(tranfer_amount <= balance)
 	    {
 	        balance = balance - tranfer_amount;
-	        printf("\nTranfer successfully.\nYour account balance is %lf", balance);
+	        printf("\nTranfer successfully.");
+	        return balance;
 	    }
 		else
 		printf("\nYour balance is not enough.");
-	}
-	return balance;			
+		return balance;
+	}		
 }
 void check_balance(double balance){
 	printf("\nYour choice is checking account balance.");
