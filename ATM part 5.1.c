@@ -44,17 +44,19 @@ main()
 			          printf("\nYour choice is transfer money.");
 	                          printf("\nPlease enter the account you want to tranfer:");
 	                          scanf("%d", &tranfer_account);
-	                          do{
+	                          while(tranfer_account != 5678){
                                        printf("\nThe account you want to tranfer is not correct! Please try again.");
 	                               printf("\nPlease enter the account you want to tranfer:");
 	                               scanf("%d", &tranfer_account);
-	                             }while(tranfer_account != 5678);
-	                      
-				  printf("\nPlease enter the amount you want to tranfer:");
-	                          scanf("%lf", &tranfer_amount); 
+	                             }
+	                          if(tranfer_account == 5678){
+					  
+				       printf("\nPlease enter the amount you want to tranfer:");
+	                               scanf("%lf", &tranfer_amount); 
 	            
-				  balance = tranfer(balance, tranfer_amount, tranfer_account);
-				  printf("\nYour account balance is %lf", balance);
+				       balance = tranfer(balance, tranfer_amount, tranfer_account);
+				       printf("\nYour account balance is %lf", balance);
+				  }	  
 		                  break;	
 			     case 3:
 				  check_balance(balance);
@@ -69,6 +71,7 @@ main()
 		    }while(choice2 == 'Y' || choice2 == 'y');
 		     if(choice2 != 'Y' && choice2 != 'y')
 		        logout();
+		        return 0;
 	    }
 	    else if(i == 0){
 	    	printf("\nPassword or Username incorrect!");
