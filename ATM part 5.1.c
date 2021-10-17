@@ -19,53 +19,53 @@ main()
 	printf("\nWelcome to HSBC ATM!");
 	
 	do{
-		printf("\nEnter your username: ");
+	    printf("\nEnter your username: ");
 	    scanf("%d", &username);
 	    printf("\nEnter your password: ");
-     	scanf("%d", &password);
-     	login(username, password);
+     	    scanf("%d", &password);
+     	    login(username, password);
 	    int i = login(username, password);
-        cnt--;
+            cnt--;
 	    if(i == 1){
-		    printf("\nLogged in successfully");
-		    do{
-			    choice1 = trans(choice1);
-			    switch(choice1){
-				    case 1:
-				    	printf("\nYour choice is withdraw money.");
-                    	printf("\nPlease enter the amount you want to withdraw. ");
-	                    scanf("%lf", &withdraw_amount);
+		printf("\nLogged in successfully");
+		do{
+		      choice1 = trans(choice1);
+		      switch(choice1){
+		            case 1:
+				  printf("\nYour choice is withdraw money.");
+                    	          printf("\nPlease enter the amount you want to withdraw. ");
+	                          scanf("%lf", &withdraw_amount);
 	                    					    
-					    balance = withdraw(balance, withdraw_amount);
+				  balance = withdraw(balance, withdraw_amount);
 	
-					    printf("\nYour account balance is %lf", balance);
-					    break;
-				    case 2:
-				    	printf("\nYour choice is transfer money.");
-	                    printf("\nPlease enter the account you want to tranfer:");
-	                    scanf("%d", &tranfer_account);
-	                    do{
-                            printf("\nThe account you want to tranfer is not correct! Please try again.");
-	                        printf("\nPlease enter the account you want to tranfer:");
-	                        scanf("%d", &tranfer_account);
-	                      }while(tranfer_account != 5678);
+				  printf("\nYour account balance is %lf", balance);
+				  break;
+		            case 2:
+			          printf("\nYour choice is transfer money.");
+	                          printf("\nPlease enter the account you want to tranfer:");
+	                          scanf("%d", &tranfer_account);
+	                          do{
+                                       printf("\nThe account you want to tranfer is not correct! Please try again.");
+	                               printf("\nPlease enter the account you want to tranfer:");
+	                               scanf("%d", &tranfer_account);
+	                             }while(tranfer_account != 5678);
 	                      
-						printf("\nPlease enter the amount you want to tranfer:");
-	                    scanf("%lf", &tranfer_amount); 
+				  printf("\nPlease enter the amount you want to tranfer:");
+	                          scanf("%lf", &tranfer_amount); 
 	            
-				        balance = tranfer(balance, tranfer_amount, tranfer_account);
-				        printf("\nYour account balance is %lf", balance);
-					    break;	
-				    case 3:
-				        check_balance(balance);
-				        break;
-				    default:
-				        printf("\nThe transaction you selected is not valid!!");	
+				  balance = tranfer(balance, tranfer_amount, tranfer_account);
+				  printf("\nYour account balance is %lf", balance);
+		                  break;	
+			     case 3:
+				  check_balance(balance);
+			          break;
+		             default:
+				  printf("\nThe transaction you selected is not valid!!");	
 			    }
-			    printf("\nDo you want to continue an other transaction?");
-		        printf("\nEnter 'Y' if you agree, enter 'N' if you dont: ");
-		        fflush(stdin);
-		        scanf("%c", &choice2);
+		      printf("\nDo you want to continue an other transaction?");
+		      printf("\nEnter 'Y' if you agree, enter 'N' if you dont: ");
+		      fflush(stdin);
+		      scanf("%c", &choice2);
 		    }while(choice2 == 'Y' || choice2 == 'y');
 		     if(choice2 != 'Y' && choice2 != 'y')
 		        logout();
